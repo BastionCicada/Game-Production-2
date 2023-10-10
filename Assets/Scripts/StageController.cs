@@ -25,5 +25,12 @@ public class StageController : MonoBehaviour
         {
         transform.Rotate(Vector3.left * Time.deltaTime * rotateSpeed);
         }
+        if(Input.GetKey("a"))
+        {
+        transform.Rotate(Vector3.forward * Time.deltaTime * rotateSpeed);
+        }
+        if(Input.GetKey("d"))
+        transform.Rotate(Vector3.back * Time.deltaTime * rotateSpeed);
+        
     }
 }
