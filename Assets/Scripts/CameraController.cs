@@ -29,8 +29,9 @@ public class CameraController : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
         rotationY += mouseX;
-        rotationX += mouseY;
+        rotationX -= mouseY;
 
+        // Clamps the camera to a specific rotation
         rotationX = Mathf.Clamp(rotationX, rotationXMinMax.x, rotationXMinMax.y);
 
         Vector3 nextRotation = new Vector3(rotationX, rotationY);
