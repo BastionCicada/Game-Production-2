@@ -40,5 +40,7 @@ public class CameraController : MonoBehaviour
         transform.localEulerAngles = activeRotation;
 
         transform.position = Target.position - transform.forward * distanceFromTarget;
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
