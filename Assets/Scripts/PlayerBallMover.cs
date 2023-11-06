@@ -28,7 +28,7 @@ public class PlayerBallMover : MonoBehaviour
 
         if (Input.GetAxis("Vertical") > 0)
         {
-            rigid.AddForce(Vector3.forward * currentSpeed);
+            rigid.AddForce(Vector3.forward * currentSpeed); 
         }
         else if (Input.GetAxis("Vertical") < 0)
         {
