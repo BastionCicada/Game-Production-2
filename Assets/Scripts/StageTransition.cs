@@ -1,14 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.SceneManagement;
 
-public class CoinScript : MonoBehaviour
+public class StageTransition : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
-    public int currentCoins;
-   
-
     // Start is called before the first frame update
     void Start()
     {
@@ -18,15 +14,13 @@ public class CoinScript : MonoBehaviour
 
     public void OnTriggerEnter(Collider Col)
     {
-        if(Col.gameObject.tag == "Coin")
+        if(Col.gameObject.tag == "Portal")
         {
-        currentCoins++;
-        Col.gameObject.SetActive(false);
+            Debug.Log("Teleported");
         }
-        
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         
