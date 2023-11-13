@@ -14,7 +14,7 @@ public class PlayerBallMover : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(Input.GetAxis("Horizontal") > 0)
         {
