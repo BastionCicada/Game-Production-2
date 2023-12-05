@@ -34,5 +34,7 @@ public class PlayerBallMover : MonoBehaviour
         {
             rigid.AddForce(Vector3.back * currentSpeed);
         }
+
+        Physics.gravity = new Vector3(0, -25.0F, 0);
     }
 }
