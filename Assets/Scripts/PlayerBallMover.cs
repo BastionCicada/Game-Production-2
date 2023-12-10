@@ -6,7 +6,10 @@ public class PlayerBallMover : MonoBehaviour
 {
     private float maxSpeed;
     public Rigidbody rigid;
-    public float currentSpeed;
+    public Transform cam;
+    public float force;
+    private bool groundedPlayer = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,25 +19,43 @@ public class PlayerBallMover : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetAxis("Horizontal") > 0)
+        if (Input.GetKey("d"))
         {
-            rigid.AddForce(Vector3.right * currentSpeed); // adds force going right
+            rigid.AddForce(new Vector3(cam.right.x, 0, cam.right.z).normalized * force);
         }
-        else if (Input.GetAxis("Horizontal") < 0) 
+    
+        if (Input.GetKey("a"))
         {
-            rigid.AddForce(Vector3.left * currentSpeed); // adds for going left by subtracting the force
+            rigid.AddForce(new Vector3(cam.right.x, 0, cam.right.z).normalized * -force);
+        }
+    
+        if (Input.GetKey("w"))
+        {
+            rigid.AddForce(new Vector3(cam.forward.x, 0, cam.forward.z).normalized * force);
+        }
+    
+        if (Input.GetKey("s"))
+        {
+            rigid.AddForce(new Vector3(cam.forward.x, 0, cam.forward.z).normalized * -force);
+        }
+    }
 
-        }
-
-        if (Input.GetAxis("Vertical") > 0)
+    void Update()
+    {
+        if(Input.GetButtonDown("Jump") && groundedPlayer)
         {
-            rigid.AddForce(Vector3.forward * currentSpeed); 
+            rigid.AddForce(new Vector3(0, 10, 0), ForceMode.Impulse);
+            Debug.Log("Jumped");
+            Physics.gravity = new Vector3(0, -25, 0);
+            groundedPlayer = false;
         }
-        else if (Input.GetAxis("Vertical") < 0)
-        {
-            rigid.AddForce(Vector3.back * currentSpeed);
-        }
+    }  
 
-        Physics.gravity = new Vector3(0, -25.0F, 0);
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Floor")
+        {
+            groundedPlayer = true;
+        }
     }
 }

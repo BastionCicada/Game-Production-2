@@ -52,5 +52,6 @@
         "temp/":true,
         "Temp/":true
     },
-    "dotnet.defaultSolution": "Game Production 2.sln"
+    "dotnet.defaultSolution": "Game Production 2.sln",
+    "dotnet.preferCSharpExtension": true
 }
