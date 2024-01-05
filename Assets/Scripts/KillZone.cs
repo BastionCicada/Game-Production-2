@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class KillZone : MonoBehaviour
 {
+    public AudioSource death;
     // Start is called before the first frame update
     void Start()
     {
-    
+     death = gameObject.GetComponent<AudioSource>();
     }
 
     
@@ -18,9 +19,10 @@ public class KillZone : MonoBehaviour
        {
         Debug.Log("Died");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        death.Play();
+
        }  
     }
-
 
     void Update()
     {

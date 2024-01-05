@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StageTransition : MonoBehaviour
 {
+    public int SceneID;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class StageTransition : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             Debug.Log("Teleported");
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(SceneID);
         }
     }
 
