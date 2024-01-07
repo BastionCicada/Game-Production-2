@@ -9,13 +9,13 @@ public class PlayerBallMover : MonoBehaviour
     public Transform cam;
     public float force;
     private bool groundedPlayer = true;
-    public AudioSource jumpsound;
+    public AudioSource PlayerJump;
 
     // Start is called before the first frame update
     void Start()
     {
         rigid = gameObject.GetComponent<Rigidbody>();
-        jumpsound = gameObject.GetComponent<AudioSource>();
+        PlayerJump = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class PlayerBallMover : MonoBehaviour
             Debug.Log("Jumped");
             Physics.gravity = new Vector3(0, -25, 0);
             groundedPlayer = false;
-            jumpsound.Play();
+            PlayerJump.Play();
         }
     }  
 

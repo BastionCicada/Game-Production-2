@@ -7,23 +7,23 @@ public class CoinScript : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public int currentCoins;
-    public AudioSource coingrab;
+    public AudioSource CoinGrab;
    
 
     // Start is called before the first frame update
     void Start()
     {
-        coingrab = gameObject.GetComponent<AudioSource>();
+        CoinGrab = gameObject.GetComponent<AudioSource>();
     }
 
 
-    public void OnTriggerEnter(Collider Col)
+    public void OnTriggerEnter(Collider other)
     {
-        if(Col.gameObject.tag == "Coin")
+        if(other.gameObject.tag == "Coin")
         {
         currentCoins++;
-        Col.gameObject.SetActive(false);
-        coingrab.Play();
+        other.gameObject.SetActive(false);
+        CoinGrab.Play();
 
         }
         
