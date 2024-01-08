@@ -7,6 +7,9 @@ public class PlayerAudio : MonoBehaviour
     public AudioSource CoinGrab;
     public AudioSource PlayerJump;
     // Start is called before the first frame update
+    
+    // this is an attempt to try and fix the audio bug, doesn't seem to work 
+    
     void Start()
     {
         CoinGrab = gameObject.AddComponent<AudioSource>();

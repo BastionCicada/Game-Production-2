@@ -13,17 +13,17 @@ public class CoinScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CoinGrab = gameObject.GetComponent<AudioSource>();
+        CoinGrab = gameObject.GetComponent<AudioSource>(); 
     }
 
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Coin")
+        if(other.gameObject.tag == "Coin") // If the player touches something with the coin tag
         {
-        currentCoins++;
-        other.gameObject.SetActive(false);
-        CoinGrab.Play();
+        currentCoins++; // Adds coins to the canvas script
+        other.gameObject.SetActive(false); // turns the active coin off
+        CoinGrab.Play(); // plays coin sound
 
         }
         
@@ -32,6 +32,6 @@ public class CoinScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Coins: " + currentCoins.ToString();
+        scoreText.text = "Coins: " + currentCoins.ToString(); // updates the scoretext to the current coins 
     }
 }

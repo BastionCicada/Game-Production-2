@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CoinRotation : MonoBehaviour
 {
-    public float speed;
-    public Vector3 rotation;
+    public float speed; // this is the controlled speed 
+    public Vector3 rotation; // this is the rotation angle
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,6 @@ public class CoinRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    transform.Rotate(rotation * speed * Time.deltaTime);
+    transform.Rotate(rotation * speed * Time.deltaTime); // this controls the rotation and the speed of the coin timed by the frame time
     }
 }

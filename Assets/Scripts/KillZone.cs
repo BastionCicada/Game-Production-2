@@ -15,10 +15,10 @@ public class KillZone : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
-       if(other.CompareTag("Player"))
+       if(other.CompareTag("Player")) // checks if the player collides
        {
         Debug.Log("Died");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // resets the scene
         death.Play();
 
        }  

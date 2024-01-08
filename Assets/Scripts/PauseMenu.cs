@@ -11,15 +11,15 @@ public GameObject pauseMenu;
 
     void Update()
     {
-      if(Input.GetKeyDown(KeyCode.Escape))
+      if(Input.GetKeyDown(KeyCode.Escape)) // checks if esc has been pressed
       {
-        if (GameIsPaused)
+        if (GameIsPaused) // checks if the bool is set to true or false
         {
-            Resume();
+            Resume(); // if false, resume
         }
         else
         {
-            Pause();
+            Pause(); // if true, pause
         }
       }  
     }
@@ -27,26 +27,26 @@ public GameObject pauseMenu;
 
     public void Resume()
     {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        pauseMenu.SetActive(false); // sets the pausemenu to active
+        Time.timeScale = 1f; // resumes time
+        GameIsPaused = false; // changes the checking bool to false
+        Cursor.lockState = CursorLockMode.Locked; // locks the cursor to the screen
 
         
     }
     
     public void Pause()
     {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
-        GameIsPaused = true;
-        Cursor.lockState = CursorLockMode.None;
+        pauseMenu.SetActive(true); // sets the pause menu to true
+        Time.timeScale = 0f; // pauses time
+        GameIsPaused = true; // sets the checking bool to true
+        Cursor.lockState = CursorLockMode.None; // unlocks the cursor
     }
 
     public void Quit()
     {
-        SceneManager.LoadScene(0);
-        Time.timeScale = 1f;
+        SceneManager.LoadScene(0); // loads the menu
+        Time.timeScale = 1f; // resumes time
     }
 
 }

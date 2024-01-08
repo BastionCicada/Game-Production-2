@@ -15,11 +15,11 @@ public class StageTransition : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player")) // If collided has tag player then
         {
             Debug.Log("Teleported");
-            SceneManager.LoadScene(SceneID);
-            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene(SceneID); // teleports the player to selected sceneid through script
+            Cursor.lockState = CursorLockMode.None; // this is a sneaky work around to the menu cursor lock issue when taken back to the menu
         }
     }
 

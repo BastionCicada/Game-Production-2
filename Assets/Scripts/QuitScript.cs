@@ -6,7 +6,7 @@ public class QuitScript : MonoBehaviour
 {
 public void QuitProccess()
 {
-    Application.Quit();
+    Application.Quit(); // quits the application
     Debug.Log("Exited");
 }
 }

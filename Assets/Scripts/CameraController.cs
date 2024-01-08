@@ -5,21 +5,21 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
   
-  public float mouseSensitivity;
+  public float mouseSensitivity; // the sensitivity of the mouse
   
-  private float rotationY;
+  private float rotationY; 
   private float rotationX;
 
-  public Transform Target;
+  public Transform Target; // this defines what the camera is targeting, in this case this will be the player
 
-  public float distanceFromTarget;
+  public float distanceFromTarget; // this is the active distance from the target
   
-  private Vector3 activeRotation;
+  private Vector3 activeRotation; // the current movement of the camera
   private Vector3 smoothVelocity = Vector3.zero;
 
-  public float smoothTime = 0.2f;
+  public float smoothTime = 0.2f; // this adds smoothing to the camera
 
-  public Vector2 rotationXMinMax = new Vector2(-20,20);
+  public Vector2 rotationXMinMax = new Vector2(-20,20); // this is the default clamping value of the camera
 
     
 
@@ -27,16 +27,16 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-      Cursor.lockState = CursorLockMode.Locked;
+      Cursor.lockState = CursorLockMode.Locked; // starts the game locking the mouse
     }
 
     
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity; 
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-        rotationY += mouseX;
+        rotationY += mouseX; // this sets the rotations of the mouse 
         rotationX -= mouseY;
 
         // Clamps the camera to a specific rotation
