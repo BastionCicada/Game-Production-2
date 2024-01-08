@@ -21,8 +21,16 @@ public class CameraController : MonoBehaviour
 
   public Vector2 rotationXMinMax = new Vector2(-20,20);
 
-  
-    // Update is called once per frame
+    
+
+
+
+    void Start()
+    {
+      Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    
     void Update()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
@@ -41,6 +49,6 @@ public class CameraController : MonoBehaviour
 
         transform.position = Target.position - transform.forward * distanceFromTarget;
 
-        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 }
