@@ -19,6 +19,7 @@ public class StageTransition : MonoBehaviour
         {
             Debug.Log("Teleported");
             SceneManager.LoadScene(SceneID);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 

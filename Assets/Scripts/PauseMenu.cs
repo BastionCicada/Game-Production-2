@@ -46,6 +46,7 @@ public GameObject pauseMenu;
     public void Quit()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
     }
 
 }
